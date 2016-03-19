@@ -1,20 +1,37 @@
+html, body, #cnt {
+  height: 100%;
+  width: 100%; }
+
+#info {
+  height: 10%;
+  /* in reality 16%ish*/ }
+
+#mapsCnt {
+  height: 100%;
+  /* if you scroll past info, should be full page */ }
+
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
   color: #00B7FF; }
 
+.map-col {
+  height: 100%;
+  float: left;
+  overflow: hidden; }
+
 img.r6-map-img {
-  max-width: 70%;
-  height: auto; }
+  display: block;
+  height: 100%; }
 
-/* .col-md-6 { */
-/*           padding: 10px 10px 10px 10px; */
-/* } */
-html {
-  position: relative;
-  min-height: 100%; }
+.r6-row {
+  height: 50%; }
 
-body {
-  padding-bottom: 50px; }
+#map-name {
+  margin-top: 10px;
+  margin-bottom: 5px; }
+
+.r6-floor-name {
+  margin-top: 5px;
+  margin-bottom: 5px; }

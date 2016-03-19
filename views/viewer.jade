@@ -1,17 +1,33 @@
 extends layout
 
 block content
-  p Welcome to #{title}
-  p enter a name and press register, and enter the same name on the controller to control it
   div.container-fluid#cnt
-    div.row
-      div.col-md-12
-      form.form-inline(onkeypress="return event.keyCode != 13;")
-        div.form-group
-          label Name &nbsp
-          input.form-control#nameInput(type="text", placeholder="Bob")
-          button.btn.btn-primary(type='button', onclick='register();') Register
+    div#info
+      h2#map-name
+      p enter a name and press register, and enter the same name on the controller to control it
+      div.row
+        div.col-md-12
+          form.form-inline(onkeypress="return event.keyCode != 13;")
+            div.form-group
+              label Name &nbsp
+              input.form-control#nameInput(type="text", placeholder="Bob")
+              button.btn.btn-primary(type='button', onclick='register();') Register
     div.container-fluid#mapsCnt
+      div.row.r6-row#r6-row-0
+        div.col-md-6.map-col
+          h3.r6-floor-name#r6-floor-name-0
+          img.img-responsive.r6-map-img#r6-map-0
+        div.col-md-6.map-col
+          h3.r6-floor-name#r6-floor-name-1
+          img.img-responsive.r6-map-img#r6-map-1
+      div.row.r6-row#r6-row-1
+        div.col-md-6.map-col
+          h3.r6-floor-name#r6-floor-name-2
+          img.img-responsive.r6-map-img#r6-map-2
+        div.col-md-6.map-col
+          h3.r6-floor-name#r6-floor-name-3
+          img.img-responsive.r6-map-img#r6-map-3
+
 
 
 block pagejs
