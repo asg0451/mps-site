@@ -3,7 +3,6 @@ html, body, #cnt {
   width: 100%; }
 
 #info {
-  height: 10%;
   /* in reality 16%ish*/ }
 
 #mapsCnt {
@@ -33,5 +32,5 @@ img.r6-map-img {
   margin-bottom: 5px; }
 
 .r6-floor-name {
-  margin-top: 5px;
+  margin-top: 10px;
   margin-bottom: 5px; }
