@@ -29,21 +29,33 @@ socket.on('update', function(mapData) { // array
 var refresh = function(mapData) {
     var name = mapData.name;
     var floors = mapData.floors;
-    $("div#row").html("");
+    $("div#mapsCnt").html("");
+    $("div#mapsCnt").append($('<div>', {id: 'r6-row-0', class: 'row'}));
+    $("div#mapsCnt").append($('<div>', {id: 'r6-row-1', class: 'row'}));
+    // split max 4 imgs into two rows
+    var cycle = 0;
     floors.forEach(function(floor) {
-        $("div#row").append(
-            $("<div>", {class: "col-sm-6"}).append(
+        if(cycle % 4 < 2) {
+            var row = $('div#r6-row-0');
+        } else {
+            var row = $('div#r6-row-1');
+        }
+        row.append(
+            $("<div>", {class: "col-md-6"}).append(
                 $("<h3>" + floor + "</h3>"),
-                $("<img>", {class: "img-responsive", src: "/maps/" + name + "/" + floor})
+                $("<img>", {class: "img-responsive r6-map-img", src: "/maps/" + name + "/" + floor})
             )
         );
+        cycle++;
     });
 }
 
+var initImgDivs = function() {
+    $("div#mapsCnt").append($('<div>', {id: 'r6-row-0', class: 'row'}));
+};
+
 $(document).ready(function() {
-    console.log('wat');
     register();
-    room = "dookie_blastin"; // default
     socket.emit('map', {map: 'house', room: room});
 
 });
