@@ -1,21 +1,23 @@
 extends layout
 
 block content
-  p Welcome to #{title}
-
   div.container-fluid#cnt
+    h3 Welcome to #{title}
     div.row
       div.col-md-12
-      form.form-inline(onkeypress="return event.keyCode != 13;")
-        div.form-group
-          label Name &nbsp
-          input.form-control#nameInput(type="text", placeholder="Bob")
-      form.form-inline(onkeypress="return event.keyCode != 13;")
-        div.form-group
-          label Map &nbsp
-          select.form-control#mapSel(onchange="if (this.selectedIndex) selected();")
-            each val in maps
-              option= val
+        form.form-inline(onkeypress="return event.keyCode != 13;")
+          div.form-group
+            label Name &nbsp
+            select.form-control#userSel
+        form.form-inline(onkeypress="return event.keyCode != 13;")
+          div.form-group
+            label Map &nbsp
+            select.form-control#mapSel(onchange="if (this.selectedIndex > -1) selected();")
+              each val in maps
+                option= val
 
 block pagejs
   script(src='/js/controller.js')
+
+
+//             input.form-control#nameInput(type="text", placeholder="Bob")
