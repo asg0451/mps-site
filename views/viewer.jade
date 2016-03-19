@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  p Welcome to #{title}
+
+  div.container-fluid#cnt
+    div.row
+      div.col-md-12
+      form.form-inline(onkeypress="return event.keyCode != 13;")
+        div.form-group
+          label Name &nbsp
+          input.form-control#nameInput(type="text", placeholder="Bob")
+          button.btn.btn-primary(type='button', onclick='register();') Register
+    div.row#row
+
+block pagejs
+  script(src='/js/viewer.js')
