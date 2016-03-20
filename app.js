@@ -128,7 +128,7 @@ io.on('connection', function (socket) {
     });
 
     socket.on('map', function(data) {
-        console.log("map req: " + data);
+        console.log("map req: " + JSON.stringify(data));
         var name = data.map;
         var room = data.room;
         var floors = fs.readdir(__dirname + '/map_dir/maps/' + name, function(err, floors) {
