@@ -111,6 +111,10 @@ io.on('connection', function (socket) {
         }
     });
 
+    socket.on('userlist pls', function() {
+        socket.emit('user registered', {rooms: getAllRooms(io)});
+    });
+
     socket.on('disconnect', function() {
         var allRooms = getAllRooms(io);
         var ourRooms = [];

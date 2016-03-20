@@ -1,11 +1,11 @@
 extends layout
 
 block content
+  include ./includes/navbar.jade
   div.container-fluid#cnt
-    include ./includes/navbar.jade
     div#info
       h2#map-name
-      p enter a name and press register, and enter the same name on the controller to control it
+      p enter a name and press register, and enter the same name on the controller to control it. if you don't you are on default channel
       div.row
         div.col-md-12
           form.form-inline(onkeypress="return event.keyCode != 13;")

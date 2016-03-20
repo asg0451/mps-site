@@ -46,7 +46,10 @@ var refresh = function(mapData) {
     }
 
     floors.forEach(function(floor,i) {
-        $('#r6-map-'+i).attr('src', '/maps/' + name + '/' + floor);
+        $('#r6-map-'+i).fadeOut(function() {
+            $(this).load(function() { $(this).fadeIn(); });
+            $(this).attr('src', '/maps/' + name + '/' + floor);
+        });
         $('#r6-floor-name-'+i).html(floor);
         $('#map-name').html(name);
     });
