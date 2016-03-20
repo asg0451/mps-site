@@ -15,10 +15,10 @@ block content
             label Map &nbsp
             select.form-control#mapSel(onchange="if (this.selectedIndex > -1) selected();")
               each val in maps
-                option= val
+                if val === 'house'
+                  option(selected='selected')= val
+                else
+                  option= val
 
 block pagejs
   script(src='/js/controller.js')
-
-
-//             input.form-control#nameInput(type="text", placeholder="Bob")

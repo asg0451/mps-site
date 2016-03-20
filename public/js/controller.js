@@ -33,4 +33,4 @@ var selected = function() {
     console.log('changing ' + room + ' to ' + map);
     socket.emit('map', {map: map, room: room});
 
-}
+};

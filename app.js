@@ -27,7 +27,7 @@ app.use(favicon(__dirname + '/public/img/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
-  extended: true
+    extended: true
 }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
@@ -90,10 +90,10 @@ io.on('connection', function (socket) {
         if(!data.hasOwnProperty('room')) return;
         console.log('joining ' + JSON.stringify(data));
         // leave other rooms except id room
-        for(var room in socket.rooms) {
-            if (socket.rooms.hasOwnProperty(room) &&
-                !room.startsWith('/#')) {
-                socket.leave(room);
+        for(var aRoom in socket.rooms) {
+            if (socket.rooms.hasOwnProperty(aRoom) &&
+                !aRoom.startsWith('/#')) {
+                socket.leave(aRoom);
             }
         }
         var room = data.room;
@@ -121,7 +121,7 @@ io.on('connection', function (socket) {
         for(var room in socket.rooms) {
             if (socket.rooms.hasOwnProperty(room) &&
                 !room.startsWith('/#')) {
-                 // leave our rooms and remove them from our list of all rooms
+                // leave our rooms and remove them from our list of all rooms
                 socket.leave(room);
                 allRooms.splice(allRooms.indexOf(room), 1);
             }
@@ -149,9 +149,9 @@ io.on('connection', function (socket) {
 var getAllRooms = function(io) {
     var rooms = [];
     for(var aroom in io.sockets.adapter.rooms) {
-        if(aroom != undefined &&
+        if(aroom !== undefined &&
            aroom != 'undefined' &&
-           aroom != null &&
+           aroom !== null &&
            aroom != 'null' &&
            aroom &&
            io.sockets.adapter.rooms.hasOwnProperty(aroom)) {
@@ -161,6 +161,6 @@ var getAllRooms = function(io) {
 
     rooms = rooms.filter(r => !r.startsWith('/#'));
     return rooms;
-}
+};
 
 module.exports = app;

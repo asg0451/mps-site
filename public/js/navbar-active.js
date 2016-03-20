@@ -9,7 +9,9 @@ $(document).ready(function() {
     case 'about':
         $('#navbar-about-link').attr('class', 'active');
         break;
-
     }
-
 });
+
+var removeActiveOnDropdown = function () {
+    $('a#dropdownMaps').removeClass('active');
+};

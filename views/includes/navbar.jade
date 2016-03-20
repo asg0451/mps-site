@@ -8,21 +8,30 @@ div(class='navbar navbar-inverse', role='navigation')
       span.icon-bar
 
   div#my-navbar-collapse(class='collapse navbar-collapse')
-    ul(class='nav navbar-nav')
-      li(id='navbar-home-link')
+    ul.nav.navbar-nav
+      li#navbar-home-link
         a(href='/') Home
-      li(id='navbar-about-link')
+      li#navbar-about-link
         a(href="/about") About
-      li(id='navbar-contact-link')
+      li#navbar-contact-link
         a(href="/contact") Contact
-      li(id='navbar-viewer-link')
-        a(href="/viewer") Map Viewer
-      li(id='navbar-controller-link')
-        a(href="/controller") Map Controller
-    ul(class='nav navbar-nav navbar-right')
+      li.dropdown
+        a.dropdown-toggle#dropdownMaps(
+          role='button'
+          data-toggle='dropdown'
+          aria-haspopup='true'
+          aria-expanded='false'
+          onclick='removeActiveOnDropdown()') Maps
+          span.caret
+        ul.dropdown-menu(aria-labelledby='dropdownMaps')
+          li#navbar-viewer-link
+            a(href="/viewer") Map Viewer
+          li#navbar-controller-link
+            a(href="/controller") Map Controller
+    ul.nav.navbar-nav.navbar-right
       li
-        audio(id='sayin-1', src='/snd/namsayin/ns1.wav')
-        audio(id='sayin-2', src='/snd/namsayin/ns2.wav')
-        audio(id='sayin-3', src='/snd/namsayin/ns3.wav')
-        audio(id='sayin-4', src='/snd/namsayin/ns4.wav')
+        audio#sayin-1(src='/snd/namsayin/ns1.wav')
+        audio#sayin-2(src='/snd/namsayin/ns2.wav')
+        audio#sayin-3(src='/snd/namsayin/ns3.wav')
+        audio#sayin-4(src='/snd/namsayin/ns4.wav')
         a(href='#', onclick='playRandSayin()') namsayin? &nbsp

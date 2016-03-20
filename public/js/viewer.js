@@ -1,6 +1,5 @@
 'use strict';
 var socket = io.connect('http://morningpoopsquad.horse:4001');
-///
 
 var room = "dookie_blastin"; // default
 
@@ -53,7 +52,7 @@ var refresh = function(mapData) {
         $('#r6-floor-name-'+i).html(floor);
         $('#map-name').html(name);
     });
-}
+};
 
 
 $(document).ready(function() {
