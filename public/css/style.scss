@@ -1,6 +1,11 @@
 html, body, #cnt {
     height: 100%;
-    width: 100%;
+    width: 99%;
+}
+
+.container-fluid {
+    padding-left: 10px !important;
+    padding-right: 5px !important;
 }
 
 #info {
@@ -9,7 +14,7 @@ html, body, #cnt {
 }
 
 #mapsCnt {
-    height: 100%;               /* if you scroll past info, should be full page */
+    height: 80%;               /* if you scroll past info, should be full page */
 }
 
 body {
@@ -21,18 +26,15 @@ a {
 }
 
 .map-col {
-    height: 100%;
-    float: left;
-    overflow: hidden;
+    width: 100%;
+    max-height: 90%;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
 }
 
-img.r6-map-img {
-    display: block;
-    height: 90%;
-}
 
 .r6-row {
-    height: 50%;
+    height: 100%;
 }
 
 #map-name {
