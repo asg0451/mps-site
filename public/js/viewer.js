@@ -5,8 +5,9 @@ var room = "dookie_blastin"; // default
 
 function register() {
     var input = $('input#nameInput').val();
-    if(input === "")
+    if(input === "") {
         input = "dookie_blastin"; // default
+    }
     room = input;
     console.log('registering as ' + room);
     socket.emit('join', {room: room});

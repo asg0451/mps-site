@@ -16,7 +16,11 @@ socket.on('user registered', function(data) {
     $('select#userSel').html("");
     users = data.rooms;
     users.forEach(function(user) {
-        if(user && user != 'null' && user != 'undefined') {
+        if(user &&
+           user !== 'null' &&
+           user !== null &&
+           user !== 'undefined' &&
+           user !== undefined) {
             $('select#userSel').append($('<option>' + user + '</option>'));
         }
     });

@@ -1,5 +1,7 @@
+'use strict';
+
 $(document).ready(function() {
-    switch(pageName) {
+    switch(pageName) { // jshint ignore:line
     case 'home':
         $('#navbar-home-link').attr('class', 'active');
         break;

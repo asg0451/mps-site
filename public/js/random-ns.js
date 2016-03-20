@@ -1,3 +1,5 @@
+'use strict';
+
 function playSayin(n) {
     var aud = document.getElementById('sayin-'+n);
     aud.play();

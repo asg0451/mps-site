@@ -62,7 +62,7 @@ module.exports = function (grunt) {
             }
         },
         jshint: {
-            all: ['Gruntfile.js', 'public/js/**/*.js', 'app.js'],
+            all: ['Gruntfile.js', 'public/js/**/*.js', 'modules/**/*.js', 'app.js'],
             options: {
                 globals: {
                     '$': false,
@@ -71,7 +71,11 @@ module.exports = function (grunt) {
                 browser: true,
                 devel: true,
                 node: true,
-                esversion: 6
+                esversion: 6,
+                strict: 'global',
+                curly: true,
+                eqeqeq: true,
+                forin: true,
             }
         }
     });
