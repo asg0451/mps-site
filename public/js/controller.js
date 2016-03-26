@@ -5,10 +5,9 @@ var socket = io.connect('http://morningpoopsquad.horse:4001');
 
 var users = ["dookie_blastin"];
 
-socket.on('news', function (data) {
-    console.log(data);
-    socket.emit('my other event', { my: 'data' });
-
+socket.on('ping', function() {
+    socket.emit('pong');
+    console.log('pong');
 });
 
 socket.on('user registered', function(data) {

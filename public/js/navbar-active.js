@@ -3,14 +3,18 @@
 $(document).ready(function() {
     switch(pageName) { // jshint ignore:line
     case 'home':
-        $('#navbar-home-link').attr('class', 'active');
+        $('#navbar-home-link').addClass('active');
         break;
     case 'contact':
-        $('#navbar-contact-link').attr('class', 'active');
+        $('#navbar-contact-link').addClass('active');
         break;
     case 'about':
-        $('#navbar-about-link').attr('class', 'active');
+        $('#navbar-about-link').addClass('active');
         break;
+    case 'vids':
+        $('#navbar-vids-link').addClass('active');
+        break;
+
     }
 });
 

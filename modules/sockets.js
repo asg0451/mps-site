@@ -9,9 +9,18 @@ function sockets(app) {
 
     server.listen(4000);
 
+    var sendPing = function() {
+        console.log('ping');
+        io.emit('ping');
+    };
+
+    setInterval(sendPing, 60000); // every minute
+
     io.on('connection', function (socket) {
 
-        socket.emit('news', { hello: 'world' });
+        socket.on('pong', function() {
+            console.log('pong from: ' + socket.rooms);
+        });
 
         socket.on('join', function(data) {
             if(!data.hasOwnProperty('room')) {

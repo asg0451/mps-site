@@ -7,11 +7,13 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+//pages
 var routes = require('./routes/index');
 var about = require('./routes/about');
 var contact = require('./routes/contact');
 var controller = require('./routes/controller');
 var viewer = require('./routes/viewer');
+var vids = require('./routes/videos');
 
 var app = express();
 
@@ -44,6 +46,7 @@ app.use('/about', about);
 app.use('/contact', contact);
 app.use('/controller', controller);
 app.use('/viewer', viewer);
+app.use('/videos', vids);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  include ./includes/navbar.jade
+  div.container#body-cnt
+    h1.page-header Vids
+    div.vid-div
+      h3 KLOK Ace
+      div.embed-responsive.embed-responsive-16by9
+        iframe.vid.embed-responsive-item(src='https://www.youtube.com/embed/Cp-T3XCFJLw', frameborder='0', allowfullscreen)
