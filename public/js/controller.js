@@ -23,17 +23,31 @@ socket.on('user registered', function(data) {
             $('select#userSel').append($('<option>' + user + '</option>'));
         }
     });
+    userSelected();
+});
+
+
+var mapSelected = function() {
+    var map = $('select#mapSel').val();
+    var room = $('select#userSel').val();
+    console.log('changing ' + room + ' to ' + map);
+    socket.emit('map', {map: map, room: room});
+};
+
+var userSelected = function() {
+    var room = $('select#userSel').val();
+    console.log('getting rooms current map');
+    socket.emit('current map req', {room: room});
+}
+
+socket.on('current map is', function(data) {
+    var map = data.map;
+    console.log('updating mapsel ' + map);
+    $('select#mapSel').val(map).prop('selected', true);
 });
 
 $(document).ready(function() {
     console.log('pls');
     socket.emit('userlist pls');
+    userSelected();
 });
-
-var selected = function() {
-    var map = $('select#mapSel').val();
-    var room = $('select#userSel').val();
-    console.log('changing ' + room + ' to ' + map);
-    socket.emit('map', {map: map, room: room});
-
-};

@@ -57,6 +57,6 @@ var refresh = function(mapData) {
 
 $(document).ready(function() {
     register();
-    socket.emit('map', {map: 'house', room: room});
+//    socket.emit('map', {map: 'house', room: room});
 
 });

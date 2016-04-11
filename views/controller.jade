@@ -13,7 +13,7 @@ block content
         form.form-inline(onkeypress="return event.keyCode != 13;")
           div.form-group
             label Map &nbsp
-            select.form-control#mapSel(onchange="if (this.selectedIndex > -1) selected();")
+            select.form-control#mapSel(onchange="if (this.selectedIndex > -1) mapSelected();")
               each val in maps
                 if val === 'house'
                   option(selected='selected')= val

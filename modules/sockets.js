@@ -2,6 +2,8 @@
 
 var fs = require('fs');
 
+var roomsMap = new Map(); // set and get
+
 function sockets(app) {
 
     var server = require('http').Server(app);
@@ -37,6 +39,22 @@ function sockets(app) {
             var room = data.room;
             socket.join(room);
 
+            // connect to map in map
+            var name = 'house';
+            if(roomsMap.has(room)) {
+                name = roomsMap.get(room);
+            } else {
+                roomsMap.set(room, 'house');
+            }
+            console.log(name);
+            var floors = fs.readdir(__dirname + '/../map_dir/maps/' + name, function(err, floors) {
+                if(!err) {
+                    socket.emit('update', {name: name, floors: floors}); // broadcast
+                } else {
+                    console.log(err);
+                }
+            });
+
             var rooms = getAllRooms(io);
 
             if(rooms.indexOf(room) === -1) {
@@ -61,6 +79,7 @@ function sockets(app) {
                     // leave our rooms and remove them from our list of all rooms
                     socket.leave(room);
                     allRooms.splice(allRooms.indexOf(room), 1);
+                    roomsMap.delete(room);
                 }
             }
             io.emit('user registered', {rooms: allRooms});
@@ -73,10 +92,19 @@ function sockets(app) {
             var floors = fs.readdir(__dirname + '/../map_dir/maps/' + name, function(err, floors) {
                 if(!err) {
                     io.to(room).emit('update', {name: name, floors: floors}); // broadcast
+                    roomsMap.set(room, name);
                 } else {
                     console.log(err);
                 }
             });
+        });
+
+        socket.on('current map req', function(data) {
+            var room = data.room;
+            if(roomsMap.has(room)) {
+                console.log('map resp to ' + room + ' ' + roomsMap.get(room));
+                socket.emit('current map is', {map: roomsMap.get(room)});
+            }
         });
     });
 
@@ -95,8 +123,11 @@ function sockets(app) {
         }
 
         rooms = rooms.filter(r => !r.startsWith('/#'));
+        console.log(roomsMap);
         return rooms;
     };
+
+
 }
 
 module.exports = sockets;
